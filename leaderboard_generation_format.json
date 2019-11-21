@@ -21,27 +21,65 @@
                         {
                             "PPO2 (stable_baselines, default settings)" : {
                                 "filter" : "(ppo2)",
-                                "description" : "PPO2 experiments using default settings of stable_baselines repository.",
+                                "description" : "PPO2 experiments using default settings of stable_baselines repository.<br/>See https://github.com/araffin/rl-baselines-zoo/.<br/>Exact command run: python train.py --ignore-hardware --algo ppo2 --env PongNoFrameskip-v4 --tensorboard-log ./stable_baselines_results/seed_0_ppo2_PongNoFrameSkip-v4_gpu_normal/ -f ./stable_baselines_results/seed_0_ppo2_PongNoFrameSkip-v4_gpu_normal/ --seed 0 --n-timesteps 5000000 --hparam_file hyperparams/ppo2.yml ",
                                 "extra_files_processor" : "rlenergyleaderboard.processors.load_rl_eval"
                             },
                             "A2C (stable_baselines, default settings)" : {
                                 "filter" : "(.*stable_baseline.*.a2c.*)",
-                                "description" : "TODO",
+                                "description" : "A2C experiments using default settings of stable_baselines repository.<br/>See https://github.com/araffin/rl-baselines-zoo/.<br/>Exact command run: python train.py --ignore-hardware --algo a2c --env PongNoFrameskip-v4 --tensorboard-log ./stable_baselines_results/seed_0_a2c_PongNoFrameSkip-v4_gpu_normal/ -f ./stable_baselines_results/seed_0_a2c_PongNoFrameSkip-v4_gpu_normal/ --seed 0 --n-timesteps 5000000 --hparam_file hyperparams/a2c.yml ",
                                 "extra_files_processor" : "rlenergyleaderboard.processors.load_rl_eval"
                             },
                             "DQN (stable_baselines, default settings)" : {
                                 "filter" : "(.*stable_baseline.*.dqn.*)",
-                                "description" : "TODO",
+                                "description" : "DQN experiments using default settings of stable_baselines repository.<br/>See https://github.com/araffin/rl-baselines-zoo/.<br/>Exact command run: python train.py --ignore-hardware --algo dqn --env PongNoFrameskip-v4 --tensorboard-log ./stable_baselines_results/seed_0_dqn_PongNoFrameSkip-v4_gpu_normal/ -f ./stable_baselines_results/seed_0_dqn_PongNoFrameSkip-v4_gpu_normal/ --seed 0 --n-timesteps 5000000 --hparam_file hyperparams/dqn.yml ",
                                 "extra_files_processor" : "rlenergyleaderboard.processors.load_rl_eval"
                             },
                             "A2C+Vtrace (cule, default settings)" : {
                                 "filter" : "(.*vtrace.*.a2c.*)|(.*a2c.*.vtrace.*)",
-                                "description" : "TODO",
+                                "description" : "A2C+Vtrace using default settings from here: https://github.com/NVlabs/cule .<br/> Exact command run: python vtrace_main.py --env-name PongNoFrameskip-v4 --normalize --use-cuda-env --num-ales 1200 --num-steps 20 --num-steps-per-update 1 --num-minibatches 20 --t-max 5000000 --evaluation-episodes 25 --evaluation-interval 250000 --seed 4 --output-filename ./cule_results/Pong_seed_4_logs_a2c_vtrace_cule/eval.csv --log-dir ./cule_results/Pong_seed_4_logs_a2c_vtrace_cule/",
+                                "extra_files_processor" : "rlenergyleaderboard.processors.load_rl_eval"
+                            }
+                        }    
+                },
+
+                "BreakoutNoFrameskip-v4 Experiments" : {
+                    "filter" : "(Breakout)",
+                    "description" : "BreakoutNoFrameskip-v4 expeirments. Evaluate on separate environments every 250k timesteps in parallel (see code for details), run for 5M timesteps (roughly 23.15 hrs of experience).",
+                    "executive_summary_variables" : ["AverageReturnPerkWh", "AverageReturn", "AsymptoticReturn", "total_power", "exp_len_hours", "cpu_hours", "gpu_hours", "estimated_carbon_impact_kg"],
+                    "executive_summary_ordering_variable" : "AverageReturnPerkWh",
+                    "extra_files_processor" : "rlenergyleaderboard.processors.load_rl_eval",
+                    "executive_summary_plots" : [
+                        {"x" : "total_power", "y" : "AverageReturn"}, 
+                        {"x" : "total_power", "y" : "AsymptoticReturn"}, 
+                        {"x" : "exp_len_hours", "y" : "AverageReturn"},  
+                        {"x" : "exp_len_hours", "y" : "AsymptoticReturn"}
+                    ],
+                    "child_experiments" : 
+                        {
+                            "PPO2 (stable_baselines, default settings)" : {
+                                "filter" : "(ppo2)",
+                                "description" : "PPO2 experiments using default settings of stable_baselines repository.<br/>See https://github.com/araffin/rl-baselines-zoo/.<br/>Exact command run: python train.py --ignore-hardware --algo ppo2 --env BreakoutNoFrameskip-v4 --tensorboard-log ./stable_baselines_results/seed_0_ppo2_BreakoutNoFrameSkip-v4_gpu_normal/ -f ./stable_baselines_results/seed_0_ppo2_BreakoutNoFrameSkip-v4_gpu_normal/ --seed 0 --n-timesteps 5000000 --hparam_file hyperparams/ppo2.yml ",
+                                "extra_files_processor" : "rlenergyleaderboard.processors.load_rl_eval"
+                            },
+                            "A2C (stable_baselines, default settings)" : {
+                                "filter" : "(.*stable_baseline.*.a2c.*)",
+                                "description" : "A2C experiments using default settings of stable_baselines repository.<br/>See https://github.com/araffin/rl-baselines-zoo/.<br/>Exact command run: python train.py --ignore-hardware --algo a2c --env BreakoutNoFrameskip-v4 --tensorboard-log ./stable_baselines_results/seed_0_a2c_BreakoutNoFrameSkip-v4_gpu_normal/ -f ./stable_baselines_results/seed_0_a2c_BreakoutNoFrameSkip-v4_gpu_normal/ --seed 0 --n-timesteps 5000000 --hparam_file hyperparams/a2c.yml ",
+                                "extra_files_processor" : "rlenergyleaderboard.processors.load_rl_eval"
+                            },
+                            "DQN (stable_baselines, default settings)" : {
+                                "filter" : "(.*stable_baseline.*.dqn.*)",
+                                "description" : "DQN experiments using default settings of stable_baselines repository.<br/>See https://github.com/araffin/rl-baselines-zoo/.<br/>Exact command run: python train.py --ignore-hardware --algo dqn --env BreakoutNoFrameskip-v4 --tensorboard-log ./stable_baselines_results/seed_0_dqn_BreakoutNoFrameSkip-v4_gpu_normal/ -f ./stable_baselines_results/seed_0_dqn_BreakoutNoFrameSkip-v4_gpu_normal/ --seed 0 --n-timesteps 5000000 --hparam_file hyperparams/dqn.yml ",
+                                "extra_files_processor" : "rlenergyleaderboard.processors.load_rl_eval"
+                            },
+                            "A2C+Vtrace (cule, default settings)" : {
+                                "filter" : "(.*vtrace.*.a2c.*)|(.*a2c.*.vtrace.*)",
+                                "description" : "A2C+Vtrace using default settings from here: https://github.com/NVlabs/cule .<br/> Exact command run: python vtrace_main.py --env-name BreakoutNoFrameskip-v4 --normalize --use-cuda-env --num-ales 1200 --num-steps 20 --num-steps-per-update 1 --num-minibatches 20 --t-max 5000000 --evaluation-episodes 25 --evaluation-interval 250000 --seed 4 --output-filename ./cule_results/Breakout_seed_4_logs_a2c_vtrace_cule/eval.csv --log-dir ./cule_results/Breakout_seed_4_logs_a2c_vtrace_cule/",
                                 "extra_files_processor" : "rlenergyleaderboard.processors.load_rl_eval"
                             }
                         }
                     
                 } 
+
             }
     }      
 }

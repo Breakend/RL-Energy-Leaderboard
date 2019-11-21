@@ -8,5 +8,7 @@ def load_rl_eval(impact_tracker_directory, aggregated_info):
     return {
         "AverageReturn" : np.mean(rl_eval["rmean"]),
         "AsymptoticReturn" : rl_eval["rmean"][len(rl_eval["rmean"])-1],
-        "AverageReturnPerkWh" : np.mean(rl_eval["rmean"]) / aggregated_info["total_power"]
+        "AverageReturnPerkWh" : np.mean(rl_eval["rmean"]) / aggregated_info["total_power"],
+        "AverageEpisodeLength" : np.mean(rl_eval["lmean"]),
+        "AverageMaximumEpisodeLength" : np.mean(rl_eval["lmax"])
         }
