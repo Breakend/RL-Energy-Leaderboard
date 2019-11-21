@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- modified from url=(0044)http://idl.cs.washington.edu/papers/tfgraph/ -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../style/fonts.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../../style/main.css">
+    <style type="text/css">
+        :root #content > #center > .dose > .dosesingle,
+        :root #content > #right > .dose > .dosesingle {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gutter">
+            <a href="../index.html">Experiment Sets</a>
+            <div class="nav">
+                <br>
+                    <a href="./ppo2_stable_baselines,_default_settings/index.html" class="at">PPO2 (stable_baselines, default settings)</a>
+                <br>
+                    <a href="./a2c_stable_baselines,_default_settings/index.html" class="at">A2C (stable_baselines, default settings)</a>
+                <br>
+                    <a href="./dqn_stable_baselines,_default_settings/index.html" class="at">DQN (stable_baselines, default settings)</a>
+                <br>
+                    <a href="./a2c+vtrace_cule,_default_settings/index.html" class="at">A2C+Vtrace (cule, default settings)</a>
+                
+            </div>
+        </div>
+    <div id="main">
+        <div id="content">
+            <div class="title">
+                    <div class="heading"> BreakoutNoFrameskip-v4 Experiments</div>
+            </div>
+            <br/>
+            <br/>
+            <div class="abstract">
+                <div class="heading">Description</div>
+                <div class="text">
+                    BreakoutNoFrameskip-v4 expeirments. Evaluate on separate environments every 250k timesteps in parallel (see code for details), run for 5M timesteps (roughly 23.15 hrs of experience).
+                </div>
+            </div>
+            <div class="article">
+                <div class="pub">
+                    <div class="materials">
+                        <div class="heading">Executive Summary</div>
+                        <!-- <div class="links"> -->
+                                <table border="1" class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Experiment</th>
+      <th>AverageReturnPerkWh</th>
+      <th>AverageReturn</th>
+      <th>AsymptoticReturn</th>
+      <th>total_power</th>
+      <th>exp_len_hours</th>
+      <th>cpu_hours</th>
+      <th>gpu_hours</th>
+      <th>estimated_carbon_impact_kg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>PPO2 (stable_baselines, default settings)</td>
+      <td>496.773 +/- 23.83</td>
+      <td>105.210 +/- 4.54</td>
+      <td>239.472 +/- 20.04</td>
+      <td>0.212 +/- 0.00</td>
+      <td>1.634 +/- 0.01</td>
+      <td>6.263 +/- 0.10</td>
+      <td>0.211 +/- 0.00</td>
+      <td>0.071 +/- 0.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>A2C+Vtrace (cule, default settings)</td>
+      <td>172.988 +/- 16.48</td>
+      <td>6.288 +/- 0.53</td>
+      <td>15.440 +/- 1.15</td>
+      <td>0.036 +/- 0.00</td>
+      <td>0.232 +/- 0.00</td>
+      <td>0.612 +/- 0.00</td>
+      <td>0.176 +/- 0.00</td>
+      <td>0.013 +/- 0.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A2C (stable_baselines, default settings)</td>
+      <td>90.269 +/- 7.23</td>
+      <td>14.648 +/- 1.17</td>
+      <td>56.816 +/- 4.72</td>
+      <td>0.162 +/- 0.00</td>
+      <td>1.200 +/- 0.01</td>
+      <td>6.458 +/- 0.02</td>
+      <td>0.105 +/- 0.00</td>
+      <td>0.057 +/- 0.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>DQN (stable_baselines, default settings)</td>
+      <td>7.024 +/- 0.77</td>
+      <td>15.264 +/- 1.30</td>
+      <td>30.648 +/- 3.46</td>
+      <td>2.195 +/- 0.06</td>
+      <td>19.233 +/- 0.36</td>
+      <td>61.496 +/- 0.71</td>
+      <td>1.870 +/- 0.05</td>
+      <td>0.727 +/- 0.02</td>
+    </tr>
+  </tbody>
+</table>
+                          <!-- </div> -->
+                    </div>
+                <div>        
+                </div>
+            </div>
+            
+            <div class="heading">Graphs</div>
+            <div class="paper tables">
+                <img style="width: 80%;" src="./16_8/total_powervAverageReturn.png">
+                <img style="width: 80%;" src="./16_8/total_powervAsymptoticReturn.png">
+                <img style="width: 80%;" src="./16_8/exp_len_hoursvAverageReturn.png">
+                <img style="width: 80%;" src="./16_8/exp_len_hoursvAsymptoticReturn.png">
+                
+            </div>   
+             
+        </div>
+</body>
+
+</html>
